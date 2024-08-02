@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import header_img from "../images/img-hero-img-home-2.png";
+import header_img from "https://www.notional.finance/38ff087c1c3ba952.svg";
 import { ConnectWallet } from "@thirdweb-dev/react";
 
 function Header() {
