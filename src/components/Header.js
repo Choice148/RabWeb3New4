@@ -27,46 +27,8 @@ function Header() {
                   fixed-term crypto asset lending and borrowing through a 
                   novel financial instrument called fCash.
                 </p>
-                // <p className="desc heading-L">
-                //   How does Notional Work?.
-                // </p>
-                <div className="action">
-                  <ConnectWallet
-                  className="btn-primary-1 btn-hero heading-SB connectBtn"
-                    auth={{
-                      loginConfig: {
-                        // The URL to redirect to on login.
-                        redirectTo: "/rectify",
-                        // Function to run on error.
-                        onError: function (error) {
-                          console.error("Error:", error);
-                        },
-                        // Function to run on success.
-                        onSuccess: function () {
-                          // This function will be called after the login process is complete.
-                          setHide(true)
-                        },
-                      },
-                      // If you want users to sign in after connecting their wallet
-                      loginOptional: false,
-                      loginOptions: {
-                        // The optional nonce of the login request used to prevent replay attacks
-                        nonce: "",
-                        // The optional time after which the login payload will be invalid
-                        expirationTime: new Date(),
-                        // The optional chain ID that the login request was intended for
-                        chainId: 0,
-                      },
-                    }}
-                    onConnect={() => {
-                      // This function will be called after the user has connected their MetaMask wallet.
-                      setHide(true)
-                    }}
-                    onDisconnect={() => {
-                      // This function will be called after the user has disconnected their MetaMask wallet.
-                      console.log("MetaMask is disconnected");
-                    }}
-                  </div>
+                
+                
                   <a href="https://docs.notional.finance/notional-v3" target="_blank">
                   <Button>View Docs</Button>
                   </a>
