@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import header_img from "https://www.notional.finance/38ff087c1c3ba952.svg";
 import { ConnectWallet } from "@thirdweb-dev/react";
 
+
 function Header() {
 
   const [hide, setHide] = useState(false);
@@ -27,11 +28,33 @@ function Header() {
                   fixed-term crypto asset lending and borrowing through a 
                   novel financial instrument called fCash.
                 </p>
-                
+
+                    if (connectionStatus === "connected") {
+                      return (
+                        <>
+                          <p> You are connected to {address}</p>
+                          <button onClick={disconnect}> Disconnect </button>
+                        </>
+                      );
+                    }
+                    if (connectionStatus === "disconnected") {
+                      return (
+                        <button
+                          onClick={async () => {
+                            const wallet = await connect(metamaskConfig);
+                            console.log("connected to ", wallet);
+                          }}
+                        >
+                          Launch Protocol
+                        </button>
+                      );
+                    }
+    
                   <a href="https://docs.notional.finance/notional-v3" target="_blank">
                   <Button>View Docs</Button>
                   </a>
-                
+
+                 </div>
                 </div>
               </div>
             </div>
