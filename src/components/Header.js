@@ -17,7 +17,7 @@ function Header() {
                   Lending, borrowing and earning leveraged yield with Defi’s leading fixed rate lending protocol
                 </p>
                 <p className="desc heading-L">
-                  Don’t Trust, Verify Notional is fully public,
+                  Notional is fully public,
                   open source, and on-chain. Anyone can audit Notional’s 
                   code and balances to ensure funds are secure.
                 </p>
