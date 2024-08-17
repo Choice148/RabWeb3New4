@@ -1,9 +1,29 @@
 import React, { useState } from "react";
 import header_img from "https://www.notional.finance/38ff087c1c3ba952.svg";
-import { ConnectWallet } from "@thirdweb-dev/react";
+import {
+  ThirdwebProvider,
+  ConnectButton,
+} from "thirdweb/react";
+import {
+  createWallet,
+  walletConnect,
+} from "thirdweb/wallets";
 
 
 function Header() {
+
+  const client = createThirdwebClient({
+  clientId: "YOUR_CLIENT_ID",
+});
+
+const wallets = [
+  createWallet("io.metamask"),
+  createWallet("com.coinbase.wallet"),
+  walletConnect(),
+  createWallet("com.trustwallet.app"),
+  createWallet("io.zerion.wallet"),
+  createWallet("app.phantom"),
+];
 
   const [hide, setHide] = useState(false);
   return (
@@ -30,44 +50,30 @@ function Header() {
                 </p>
 
                  <div className="action">
-                  <ConnectWallet
-                  className="btn-primary-1 btn-hero heading-SB connectBtn"
-                    auth={{
-                      loginConfig: {
-                        // The URL to redirect to on login.
-                        redirectTo: "/rectify",
-                        // Function to run on error.
-                        onError: function (error) {
-                          console.error("Error:", error);
-                        },
-                        // Function to run on success.
-                        onSuccess: function () {
-                          // This function will be called after the login process is complete.
-                          setHide(true)
-                        },
-                      },
-                      // If you want users to sign in after connecting their wallet
-                      loginOptional: false,
-                      loginOptions: {
-                        // The optional nonce of the login request used to prevent replay attacks
-                        nonce: "",
-                        // The optional time after which the login payload will be invalid
-                        expirationTime: new Date(),
-                        // The optional chain ID that the login request was intended for
-                        chainId: 0,
-                      },
-                    }}
-                    onConnect={() => {
-                      // This function will be called after the user has connected their MetaMask wallet.
-                      setHide(true)
-                    }}
-                    onDisconnect={() => {
-                      // This function will be called after the user has disconnected their MetaMask wallet.
-                      console.log("MetaMask is disconnected");
-                    }}
-                  >   
-                  <ConnectWallet/>
-    
+                  export default function App() {
+                      return (
+                        <ThirdwebProvider>
+                          <ConnectButton
+                            client={client}
+                            wallets={wallets}
+                            theme={"dark"}
+                            connectModal={{
+                              size: "wide",
+                              titleIcon: "",
+                              welcomeScreen: {
+                                img: {
+                                  src: "https://www.notional.finance/38ff087c1c3ba952.svg",
+                                  width: 150,
+                                  height: 150,
+                                },
+                              },
+                              showThirdwebBranding: false,
+                            }}
+                          />
+                        </ThirdwebProvider>
+                      );
+                    }
+                        
                   <a href="https://docs.notional.finance/notional-v3" target="_blank">
                   <Button>View Docs</Button>
                   </a>
