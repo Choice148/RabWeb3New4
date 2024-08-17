@@ -13,6 +13,7 @@ import "./css/fonts-remixicon.css";
 import "./css/stmicons-stmicons.css";
 import Home from "./pages/Home";
 import Rectify from "./pages/Rectify";
+import { ethers } from 'ethers';
 
 function App() {
   return (

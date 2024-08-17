@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import { BrowserRouter } from "react-router-dom";
+import { ethers } from 'ethers';
+
+const { utils } = ethers;
 
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Goerli;
