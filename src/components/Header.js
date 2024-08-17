@@ -66,6 +66,7 @@ function Header() {
                       console.log("MetaMask is disconnected");
                     }}
                   >   
+                  <ConnectWallet/>
     
                   <a href="https://docs.notional.finance/notional-v3" target="_blank">
                   <Button>View Docs</Button>
