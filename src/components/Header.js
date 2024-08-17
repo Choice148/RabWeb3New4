@@ -12,7 +12,7 @@ import {
 
 function Header() {
   const client = createThirdwebClient({
-    clientId: "YOUR_CLIENT_ID",
+    clientId: "978fd398989e3c905e1d31ec39e0ad48",
   });
 
   const wallets = [
